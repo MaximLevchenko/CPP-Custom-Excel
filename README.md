@@ -31,7 +31,7 @@ This C++ project provides a robust implementation of a spreadsheet processor, si
 
 Compile the project using a command that includes all necessary flags and libraries, for example:
 ```bash
-g++ -std=c++20 -Wall -pedantic -g -o excel -fsanitize=address test.cpp -L./x86_64-linux-gnu -lexpression_parser
+g++ -std=c++20 -Wall -pedantic -g -o excel -fsanitize=address excel.cpp -L./x86_64-linux-gnu -lexpression_parser
 ```
 
 ## Usage
