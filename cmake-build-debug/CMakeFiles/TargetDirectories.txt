@@ -1,0 +1,3 @@
+/home/levchmak/PA2/cmake-build-debug/CMakeFiles/PA2.dir
+/home/levchmak/PA2/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/levchmak/PA2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
