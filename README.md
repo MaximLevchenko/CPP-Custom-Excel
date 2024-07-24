@@ -57,7 +57,7 @@ Alternatively, you can compile manually using a command like:
 - **Evaluating Expressions**: Expressions are evaluated based on the context of the spreadsheet.
 - **Loading and Saving**: The spreadsheet's state can be saved to a file and loaded back to resume work.
 
-### Example Code
+#### Example Code
 
 ```cpp
 CSpreadsheet sheet;
@@ -71,7 +71,7 @@ CValue value = sheet.getValue(CPos("A2")); // Expected to be 20
 - **Saving**: : The spreadsheet's complete state, including expressions and cell values, can be serialized to a stream.
 - **Loading**: : Deserialize the stream back to restore the state.
 
-### Example Code
+#### Example Code
 
 ```cpp
 std::ostringstream savedState;
