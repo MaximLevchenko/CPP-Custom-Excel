@@ -1,66 +1,65 @@
-# Spreadsheet Processor Project
+# **Spreadsheet Processor Project** 
 
-## Overview
+## **Overview**
 
-This C++ project provides a robust implementation of a spreadsheet processor, simulating functionality typical of software like Microsoft Excel or Google Sheets. The processor supports basic arithmetic operations, cell referencing (absolute and relative), text handling, and expression evaluation.
+This project is a comprehensive C++ implementation of a spreadsheet processor, similar to widely-used software like Microsoft Excel or Google Sheets. It supports a range of functionalities including arithmetic operations, cell referencing (both absolute and relative), text handling, and complex expression evaluation. The project is designed to be modular and maintainable, allowing easy extension and modification.
 
-## Features
+## **Key Features**
 
-- **Basic Arithmetic Operations**: Supports addition, subtraction, multiplication, division, and exponentiation.
-- **Cell Referencing**: Both absolute (`$A$1`) and relative (`A1`) cell references are supported.
-- **Text Handling**: Cells can contain text, including special characters and quotes.
-- **Expression Evaluation**: Complex expressions can be evaluated based on the content of other cells.
-- **Cyclic Dependency Detection**: The system detects cyclic dependencies and handles them gracefully.
-- **Persistence**: Ability to save and load the state of the spreadsheet to ensure data is not lost between sessions.
+- **Arithmetic Operations**: Perform addition, subtraction, multiplication, division, and exponentiation directly within cells.
+- **Cell Referencing**: Supports both absolute (`$A$1`) and relative (`A1`) references, allowing for dynamic updates and formula recalculations.
+- **Text Handling**: Cells can store and manage text, including special characters and quotes.
+- **Expression Evaluation**: Evaluate complex expressions that reference other cells, enabling dynamic and powerful data manipulation.
+- **Cyclic Dependency Detection**: Automatically detects and handles cyclic dependencies in cell references to prevent infinite loops.
+- **Persistence**: Save and load the entire spreadsheet state, ensuring that data is preserved between sessions.
 
-## Core Classes
+## **Core Classes**
 
-### `CSpreadsheet`
-The primary class that acts as the spreadsheet processor, handling cell operations, and managing the state.
+### **`CSpreadsheet`**
+The central class that manages the spreadsheet's state, processes cell operations, and handles the evaluation of expressions.
 
-### `CPos`
-Represents cell positions using a row and column index, supporting operations necessary for cell referencing and manipulation.
+### **`CPos`**
+Represents the position of a cell in the spreadsheet using a row and column index, supporting operations necessary for cell referencing and manipulation.
 
-### `ExprElement`
-An abstract base class for elements that can be part of an expression (e.g., constants, operations).
+### **`ExprElement`**
+An abstract base class representing elements that can be part of an expression, such as constants, operations, or references.
 
-### `Constant`, `StringVariable`, `Reference`, `BinaryOperation`, `UnaryOperation`, `Range`, `FunctionCall`
-Concrete classes derived from `ExprElement` that represent different types of operations and values within a cell.
+### **Derived Classes of `ExprElement`**:
+- **`Constant`**: Represents a numeric constant.
+- **`StringVariable`**: Handles string values in cells.
+- **`Reference`**: Manages references to other cells.
+- **`BinaryOperation`**: Represents binary operations like addition or multiplication.
+- **`UnaryOperation`**: Represents unary operations like negation.
+- **`Range`**: Handles ranges of cells.
+- **`FunctionCall`**: Supports function calls within expressions.
 
-## Building and Running
+## **Building and Running**
 
-The project has been refactored into separate source files for better organization and maintainability. To compile the project, use the provided Makefile, which manages dependencies and compilation flags.
+The project is organized into separate source files for clarity and maintainability. You can build and run the project using the provided Makefile.
 
-### Using Makefile
+### **Using Makefile**
 
-1. **Build the project:**
+1. **Build the project**:
    ```bash
    make
    ```
-To run the game, execute the following command:
+2. **Run the executable**:
 ```bash
 ./excel
 ```
-The Makefile automatically includes all necessary source files and links with the required libraries.
+The Makefile handles all necessary dependencies and compilation flags.
+3. **Clean the build:**
+```bash
+make clean
+```
 
-2. **Clean the build:**
-   ```bash
-   make clean
-   ```  
-3. **Direct Compilation:**
+## **Usage**
 
-Alternatively, you can compile manually using a command like:
-   ```bash
-  g++ -std=c++20 -Wall -pedantic -g -o excel -fsanitize=address main.cpp CSpreadsheet.cpp CPos.cpp ExprElement.cpp CustomExpressionBuilder.cpp -L./x86_64-linux-gnu -lexpression_parser
-   ```
+- **Setting Cell Values**: Cells can be assigned numbers, strings, or expressions.
+- **Evaluating Expressions**: Expressions are evaluated based on the spreadsheet's current state.
+- **Loading and Saving**: The spreadsheet's state can be saved to a file and loaded back to continue where you left off.
 
-## Usage
-
-- **Setting Cell Values**: Cells can be set to numbers, strings, or expressions.
-- **Evaluating Expressions**: Expressions are evaluated based on the context of the spreadsheet.
-- **Loading and Saving**: The spreadsheet's state can be saved to a file and loaded back to resume work.
-
-#### Example Code
+### **Example Code**
 
 ```cpp
 CSpreadsheet sheet;
@@ -69,12 +68,12 @@ sheet.setCell(CPos("A2"), "=A1*2");
 CValue value = sheet.getValue(CPos("A2")); // Expected to be 20
 ```
 
-## Persistence
+## **Persistence**
 
-- **Saving**: : The spreadsheet's complete state, including expressions and cell values, can be serialized to a stream.
-- **Loading**: : Deserialize the stream back to restore the state.
+- **Saving**: Serialize the spreadsheet's entire state, including cell values and expressions, to a stream.
+- **Loading**: Deserialize a saved state from a stream to restore the spreadsheet.
 
-#### Example Code
+### **Example Code**
 
 ```cpp
 std::ostringstream savedState;
@@ -82,7 +81,5 @@ sheet.save(savedState);
 std::istringstream toLoad(savedState.str());
 sheet.load(toLoad);
 ```
-
-
-
-
+## Conclusion
+This spreadsheet processor project demonstrates the power of C++ in building complex, maintainable, and efficient software applications.
