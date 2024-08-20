@@ -37,7 +37,10 @@ The project has been refactored into separate source files for better organizati
    ```bash
    make
    ```
-
+To run the game, execute the following command:
+```bash
+./excel
+```
 The Makefile automatically includes all necessary source files and links with the required libraries.
 
 2. **Clean the build:**
