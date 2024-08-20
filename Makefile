@@ -3,8 +3,8 @@ CXX = g++
 CXXFLAGS = -std=c++20 -Wall -pedantic -g -fsanitize=address
 
 # Directories
-SRC_DIR = .
-OBJ_DIR = .
+SRC_DIR = src
+OBJ_DIR = src
 
 # Source files
 SRCS = $(SRC_DIR)/main.cpp $(SRC_DIR)/CPos.cpp $(SRC_DIR)/ExprElement.cpp $(SRC_DIR)/CustomExpressionBuilder.cpp $(SRC_DIR)/CSpreadsheet.cpp
