@@ -33,25 +33,6 @@ An abstract base class representing elements that can be part of an expression, 
 - **`Range`**: Handles ranges of cells.
 - **`FunctionCall`**: Supports function calls within expressions.
 
-## **Building and Running**
-
-The project is organized into separate source files for clarity and maintainability. You can build and run the project using the provided Makefile.
-
-### **Using Makefile**
-
-1. **Build the project**:
-   ```bash
-   make
-   ```
-2. **Run the executable**:
-```bash
-./excel
-```
-The Makefile handles all necessary dependencies and compilation flags.
-3. **Clean the build:**
-```bash
-make clean
-```
 
 ## **Usage**
 
@@ -140,5 +121,25 @@ sheet.load(toLoad);  // Load the saved state
 
 assert(valueMatch(sheet.getValue(CPos("A1")), CValue(10.0)));  // Validate restored value
 ```
+## **Building and Running**
+
+The project is organized into separate source files for clarity and maintainability. You can build and run the project using the provided Makefile.
+
+### **Using Makefile**
+
+1. **Build the project**:
+   ```bash
+   make
+   ```
+2. **Run the executable**:
+```bash
+./excel
+```
+The Makefile handles all necessary dependencies and compilation flags.
+3. **Clean the build:**
+```bash
+make clean
+```
+
 ## Conclusion
 This spreadsheet processor project demonstrates the power of C++ in building complex, maintainable, and efficient software applications.
