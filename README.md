@@ -136,6 +136,7 @@ The project is organized into separate source files for clarity and maintainabil
 ./excel
 ```
 The Makefile handles all necessary dependencies and compilation flags.
+
 3. **Clean the build:**
 ```bash
 make clean
